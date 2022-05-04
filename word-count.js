@@ -1,5 +1,6 @@
 
 export const countWords = (str) => {
+  
   // Split string into array of words
   let wordArr = str.split(" ");
   // **Check to see if extra punctuation/white space get their own elements..
