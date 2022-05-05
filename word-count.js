@@ -19,7 +19,11 @@ export const countWords = (str) => {
       }
     }
 
+    wordArr[i] = wordArr[i].replace(/^'|'$/g, '');
+    // Removes quotations beginning and end of word
   }
+
+
 
   console.log("after", wordArr);
 
@@ -56,10 +60,10 @@ export const countWords = (str) => {
   // Loop thru arr, checking against object to see if key already exists .toLowerCase()!!
   for (const word of wordArr) {
     // Add new word key with count value if non-exist, else up count on current word
-    if (result[word]) {
-      result[word]++;
+    if (result[word.toLowerCase()]) {
+      result[word.toLowerCase()]++;
     } else {
-      result[word] = 1;
+      result[word.toLowerCase()] = 1;
     }
   }
 
