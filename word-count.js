@@ -1,14 +1,32 @@
 
 export const countWords = (str) => {
-  
+
   // Split string into array of words
   let wordArr = str.split(" ");
   // **Check to see if extra punctuation/white space get their own elements..
+
   // Remove punctuation if required
+  // for (let word of wordArr) {
+  //   if (word.includes(',')) {
+
+  //   }
+  // }
+
+  // console.log(str, wordArr);
 
   // Empty result object
   const result = {};
   // Loop thru arr, checking against object to see if key already exists .toLowerCase()!!
-  // Add new word key with count value if non-exist, else up count on current word
+  for (const word of wordArr) {
+    // Add new word key with count value if non-exist, else up count on current word
+    if (result[word]) {
+      result[word]++;
+    } else {
+      result[word] = 1;
+    }
+  }
+
+  console.log("result", result);
+  return result;
 
 };
