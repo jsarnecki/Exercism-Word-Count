@@ -6,13 +6,27 @@ export const countWords = (str) => {
   // **Check to see if extra punctuation/white space get their own elements..
 
   // Remove punctuation if required
-  // for (let word of wordArr) {
-  //   if (word.includes(',')) {
+  for (let i = 0; i < wordArr.length; i++) {
 
-  //   }
-  // }
+    const punc = /[.,\/#!$%\^&\*;:{}=\-_`~()]/;
+    const lineBreak = "\n";
 
-  // console.log(str, wordArr);
+    if (punc.test(wordArr[i])) {
+
+      wordArr[i] = wordArr[i].replaceAll(lineBreak, " ");
+      wordArr[i] = wordArr[i].replaceAll(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, " ");
+
+      const removedPunc = wordArr[i].split(" ").filter(Boolean);
+
+      wordArr.splice(i, 1);
+
+      for (const word of removedPunc) {
+        wordArr.push(word);
+      }
+    }
+  }
+
+  console.log(str, wordArr);
 
   // Empty result object
   const result = {};
